@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 50vw;
+            height: 100vh;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #333; /* 添加背景颜色 */
+        }
+
+        label {
+            font-size: 2rem; /* 增加字体大小 */
+            color: #fff; /* 白色字体 */
+        }
+
+        button {
+            margin-top: 2rem;
+            width: 6rem;
+            height: 2rem;
+            border: 2px solid #fff; /* 白色边框 */
+            border-radius: 5px; /* 圆角边框 */
+            background: transparent;
+            color: #fff; /* 白色字体 */
+            cursor: pointer; /* 鼠标悬浮效果 */
+        }
+
+        button:hover {
+            background: #fff; /* 鼠标悬浮时白色背景 */
+            color: #333; /* 黑色字体 */
+            transition: 0.5s; /* 添加过渡效果 */
+        }
+    </style>
+</head>
+<body>
+<label>{{ getIndexData }}</label>
+<button onclick="back_to_index()">返回主页</button>
+</body>
+<script type="application/javascript">
+    function back_to_index() {
+        window.location.href = '/'
+    }
+</script>
+</html>

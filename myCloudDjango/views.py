@@ -33,3 +33,19 @@ def due_login(request):
             return render(request, 'index.html', {'getIndexData': '尚未注册'})
     else:
         return render(request, 'index.html', {'getIndexData': '非法请求，已记录您的IP地址信息'})
+
+
+@csrf_exempt
+def due_register(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        passwd = request.POST['passwd']
+        # 检查数据库中是否存在该用户信息
+        tmp = User.objects.filter(name=username).exists()
+        if tmp:
+            return JsonResponse('该用户已存在', safe=False)
+        else:
+            if User.objects.create(name=username, passwd=passwd, space_size=100, level_vip=0, online_status=0):
+                return JsonResponse('注册成功', safe=False)
+            else:
+                return JsonResponse("注册出错", safe=False)
